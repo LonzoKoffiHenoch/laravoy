@@ -13,10 +13,12 @@ return new class () extends Migration {
     public function up(): void
     {
         Schema::create('activities', static function (Blueprint $table): void {
-            $table->id();
+            $table->ulid('id')->primary();
 
             $table->string('label');
             $table->string('description');
+
+            //            $table->foreignUlid('user_id')->constrained();
 
             $table->timestamps();
         });

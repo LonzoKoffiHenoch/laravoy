@@ -10,6 +10,9 @@ interface DataTransfertObject
 {
     public static function formRequest(CreateCustomerRequest $request): self;
 
+    /**
+     * @return array<string>
+     */
     public function toArray(): array;
 
 }

@@ -13,13 +13,14 @@ return new class () extends Migration {
     public function up(): void
     {
         Schema::create('customers', static function (Blueprint $table): void {
-            $table->id();
+            $table->ulid('id')->primary();
 
             $table->string('name');
             $table->string('first_name');
             $table->string('address');
             $table->string('phone');
 
+            //            $table->foreignUlid('user_id')->constrained();
             $table->timestamps();
         });
     }
