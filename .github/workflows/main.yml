@@ -44,9 +44,11 @@ jobs:
           port: 22 
           script: |
             cd public_html/laravoy
-            git clone https://github.com/LonzoKoffiHenoch/laravoy.git
+            git pull origin main
             composer install --no-dev --optimize-autoloader
+            php -r "file_exists('.env') || copy('.env.example', '.env');"
             php artisan optimize
+            php artisan key:generate
             
 
 
