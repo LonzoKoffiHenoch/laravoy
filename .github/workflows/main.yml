@@ -43,8 +43,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22 
           script: |
-            cd public_html
-            ls
+            cd public_html/laravoy
+            git clone https://github.com/LonzoKoffiHenoch/laravoy.git
+            composer install --no-dev --optimize-autoloader
+            php artisan optimize
             
 
 
