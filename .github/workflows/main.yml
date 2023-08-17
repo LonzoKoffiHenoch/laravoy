@@ -44,11 +44,12 @@ jobs:
           port: 22 
           script: |
             cd public_html/laravoy
-            git pull origin main
+            git pull
             composer install --no-dev --optimize-autoloader
             php -r "file_exists('.env') || copy('.env.example', '.env');"
             php artisan optimize
             php artisan key:generate
+            npm install
             
 
 
